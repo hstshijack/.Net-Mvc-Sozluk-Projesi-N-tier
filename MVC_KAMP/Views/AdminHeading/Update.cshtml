@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Update", "AdminHeading", FormMethod.Post))
+{
+   @Html.Label("Başlık Id")
+   @Html.TextBoxFor(x => x.HeadingId, new {@class="form-control"})
+   <br />
+   @Html.Label("Başlık Adı")
+   @Html.TextBoxFor(x=>x.Name, new { @class = "form-control" })
+   <br />
+   @Html.Label("Tarih")
+   @Html.TextBoxFor(x=>x.Date, new { @class = "form-control" })
+   
+   @Html.Label("Yazar Id")
+   @Html.TextBoxFor(x=>x.WriterId, new { @class = "form-control" })
+  
+   @Html.Label("Kategori")
+   @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.categoryData, new { @class = "form-control" });
+   <br />
+    <button type="submit" class="btn btn-primary">Ekle</button>
+
+}
+

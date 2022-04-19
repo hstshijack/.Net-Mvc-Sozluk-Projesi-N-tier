@@ -1,0 +1,131 @@
+﻿
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.customsidebar {
+    background-color: #11101d;  
+    position:relative;
+    top: 0;
+    left: 0;    
+    height: 100%;  
+    background-color: #11101d;
+    padding: 6px 14px;
+}
+    .customsidebar .logo-content .logo {
+    color:#fff;
+    display:flex;
+    height:50px;
+    width:100%;
+    align-items:center;
+}
+.customsidebar #btn{
+    position:absolute;
+    color:#fff;
+    left:85%;
+    top:6px;
+    font-size:20px;
+    height:50px;
+    width:50px;
+    text-align:center;
+    line-height:50px;
+    transform:translateX(-50%);
+
+}
+    .customsidebar ul {
+        margin-top: 20px;
+    }
+
+        .customsidebar ul li {
+            height: 50px;
+            width: 100%;
+            margin: 0 5px;
+            list-style: none;
+            line-height: 50px;
+            border-radius: 12px;
+        }
+
+            .customsidebar ul li a {
+                color: #fff;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                transition: all 0.4s ease;
+                border-radius: 12px;
+            }
+
+                .customsidebar ul li a:hover {
+                    color: #11101d;
+                    background-color: #fff;
+                }
+
+                .customsidebar ul li a i {
+                    height: 50px;
+                    min-width: 50px;
+                    border-radius: 12px;
+                    line-height: 50px;
+                    text-align: center;
+                }
+
+    .customsidebar .profile-content {
+        position: absolute;
+        color: #fff;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+        .customsidebar .profile-content .profile {
+            position: relative;
+            padding: 10px;
+            6px;
+            height: 60px;
+            background: #1d1b31;
+        }
+
+.profile-content .profile .profile-details {
+    display: flex;
+    align-items: center;
+}
+
+.profile .profile-details img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.profile .profile-details .name {
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.profile #log-out {
+    position: absolute;
+    left: 98%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+/*div.content {
+    margin-left: 250px;
+    padding: 1px 16px;
+    height: 1000px;
+}*/
+

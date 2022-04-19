@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Content>
+
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-lg-12">
+            @*<span style="margin-bottom:10px;" class="badge bg-warning ">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</span>*@
+            <h5><span style="margin-bottom:10px;" class="badge bg-primary ">@item.Heading.Name</span></h5>
+            <div class="card">
+
+               
+                <div class="card-body">
+
+               
+                   <b><span style="font-size:15px; color:goldenrod;" class="card-title">@item.Writer.Name @item.Writer.SurName</span></b> 
+                    <br />
+                     <span>@item.Value</span>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+}
+@Html.PagedListPager((IPagedList)Model, p => Url.Action("HomePage", new { p }), new PagedListRenderOptions
+{
+
+    LiElementClasses = new List<string>
+    {
+        {"page-link"}
+    }
+
+})

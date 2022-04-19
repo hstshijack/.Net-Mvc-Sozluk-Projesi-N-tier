@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.About
+
+@using (Html.BeginForm("Create", "AdminAbout", FormMethod.Post))
+{
+    <div class="modal fade" id="aboutCreateModal" tabindex="-1" aria-labelledby="aboutCreateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutCreateModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @Html.Label("Detay 1")
+                    @Html.TextBoxFor(x => x.Details, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Detay 2")
+                    @Html.TextBoxFor(x => x.Details2, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Görsel 1")
+                    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Görsel 2 ")
+                    @Html.TextBoxFor(x => x.Image2, new { @class = "form-control" })
+                    <br />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+                    <button  type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

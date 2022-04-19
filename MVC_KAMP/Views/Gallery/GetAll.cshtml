@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Concrete
+@model List<ImageFile>
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="card" style="width: 23rem; margin-left:20px;">
+
+                <img class="card-img-top" src="@item.Path" alt="Card image cap">
+
+            </div>
+        }
+
+    </div>
+</body>
+</html>

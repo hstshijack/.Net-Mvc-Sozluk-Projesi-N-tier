@@ -1,0 +1,77 @@
+﻿@using EntityLayer.Concrete
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Message>
+
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="container">
+    <div class="wraper bootstrap snippets bootdeys bootdey">
+        <div class="page-title">
+
+        </div>
+
+        <div class="row">
+            <!-- Left sidebar -->
+            @Html.Action("PartialInboxLeftPanelWriter", "Message")
+            <!-- End Left sidebar -->
+            <!-- Right Sidebar -->
+            <div class="col-md-9">
+
+                <table class="table table-hover mails" style="margin-top:40px;">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="mail-select">
+                                    <label class="cr-styled">
+                                        <input type="checkbox"><i class="fa"></i>
+                                    </label>
+                                </td>
+                                <td class="mail-rateing">
+                                    <i class="fa fa-star"></i>
+                                </td>
+                                <td>
+                                    <a href="/Message/InboxDetails/@item.MessageId">@item.Sender</a>
+                                </td>
+                                <td>
+                                    <a href="/Message/InboxDetails/@item.MessageId">@item.Content@*.Substring(0, 30)...*@</a>
+                                </td>
+                                <td>
+                                    <i class="fa fa-paperclip"></i>
+                                </td>
+                                <td class="text-right">
+                                    07:23 AM
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+
+
+                @Html.PagedListPager((IPagedList)Model, p => Url.Action("Inbox", new { p }), new PagedListRenderOptions
+                {
+
+                 LiElementClasses = new List<string>
+                {
+                 {"page-link"}
+                }
+
+                })
+
+
+
+            </div> <!-- end Col-9 -->
+
+        </div><!-- End row -->
+
+
+    </div>
+
+</div>
+

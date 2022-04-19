@@ -1,0 +1,71 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("Create", "AdminMessage", FormMethod.Post))
+{
+    <div class="row inbox">
+        @Html.Action("PartialInboxLeftPanel", "Contact")
+        <div class="col-md-9">
+            <p class="text-center">Yeni Mesaj</p>
+            <div class="form-group">
+                @Html.Label("Alıcı")
+                @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Konu")
+                @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-11 col-sm-offset-1">
+
+                <div class="btn-toolbar" role="toolbar">
+
+                    <div class="btn-group">
+                        <button class="btn btn-default"><span class="fa fa-bold"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-italic"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-underline"></span></button>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-default"><span class="fa fa-align-left"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-align-right"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-align-center"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-align-justify"></span></button>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-default"><span class="fa fa-indent"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-outdent"></span></button>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-default"><span class="fa fa-list-ul"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-list-ol"></span></button>
+                    </div>
+                    <button class="btn btn-default"><span class="fa fa-trash-o"></span></button>
+                    <button class="btn btn-default"><span class="fa fa-paperclip"></span></button>
+                    <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-tags"></span> <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">add label <span class="label label-danger"> Home</span></a></li>
+                            <li><a href="#">add label <span class="label label-info">Job</span></a></li>
+                            <li><a href="#">add label <span class="label label-success">Clients</span></a></li>
+                            <li><a href="#">add label <span class="label label-warning">News</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Mesaj")
+                    @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
+                    <br />
+                </div>
+
+                <button class="btn btn-primary" type="submit">Gönder</button>
+                <a class="btn btn-danger" href="/Contact/GetAll" type="submit">İptal</a>
+            </div>
+        </div>
+    </div>
+}
+

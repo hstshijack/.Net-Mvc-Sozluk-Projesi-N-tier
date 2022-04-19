@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Heading
+<!-- Modal -->
+@using (Html.BeginForm("Create", "Heading", FormMethod.Post))
+{
+    <div class="modal fade" id="modal-heading-create" tabindex="-1" aria-labelledby="heading-modal-Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="heading-modal-Label">Konu Oluştur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+
+                    @Html.Label("Başlık Adı")
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name)
+                    <br />
+                    @Html.Label("Kategori")
+                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categoryData, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.CategoryId)
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">Oluştur</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

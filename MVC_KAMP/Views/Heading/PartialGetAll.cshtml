@@ -1,0 +1,15 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="~/Content/GetByHeading/@item.HeadingId">
+
+            <span>@item.Name</span>
+        </a>
+    </li>
+}

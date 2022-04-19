@@ -1,0 +1,77 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="table-responsive">
+    <table class="table align-middle">
+        <thead>
+            <tr class="align-bottom">
+                <th>#</th>
+                <th>Başlık</th>
+                <th>Oluşturan Yazar</th>
+                <th>Durum</th>
+                <th>Kategori</th>
+                <th>İşlemler</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+
+                <td>@item.HeadingId</td>
+                <td>
+                    <span>@item.Name</span>
+                    <br />
+                    <small>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</small>
+
+
+
+                </td>
+                <td>@item.Writer.Name @item.Writer.SurName</td>
+                @if (item.Status == true)
+                {
+                    <td><span class="badge bg-success">Aktif</span></td>
+                }
+                else
+                {
+                    <td><span class="badge bg-danger">Pasif</span></td>
+                }
+
+                <td>@item.Category.Name</td>
+
+
+
+
+                <td class="col-lg-3" id="islemler">
+
+                    <a href="/AdminContent/ContentByHeading/@item.HeadingId" type="button" class="btn btn-sm btn-success">Yazılar</a>
+                    <a href="/AdminHeading/Update/@item.HeadingId" type="button" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                    @if (item.Status == true)
+                    {
+                        <a href="/AdminHeading/Delete/@item.HeadingId" type="button" class="btn btn-sm btn-danger">Pasif Yap</a>
+                    }
+                    else
+                    {
+                        <a href="/AdminHeading/Delete/@item.HeadingId" type="button" class="btn btn-sm btn-success">Aktif Yap</a>
+                    }
+
+
+
+                </td>
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<a href="/AdminHeading/Create" id="btn-add-heading" style="color:white;" class="btn btn-sm btn-info "><i id="i-add-heading" class="fas fa-plus" style="color:white"></i> Başlık Ekle</a>
+
+
